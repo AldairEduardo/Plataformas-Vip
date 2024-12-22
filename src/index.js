@@ -1,10 +1,9 @@
 import express from 'express';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
-import cors from 'cors'; // Importar cors
 
 import indexRoute from './routes/index.js';
-import { Conectar } from './services/conexion.mjs';
+
 
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -19,8 +18,6 @@ app.use(indexRoute);
 // Servir archivos estáticos
 app.use(express.static(join(__dirname, 'public')));
 
-// Conectar a la base de datos
-Conectar();
 
 // Iniciar el servidor
 app.listen(3000, () => {
