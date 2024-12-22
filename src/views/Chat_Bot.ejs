@@ -1,44 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <style>
-        
+    <title>
+        <%= title %>
+    </title>
 
-        /* Contenedor principal centrado */
-        .container {
-            display: flex;
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente */
-            
+    <style>
+        body {
+            background-color: #A3D5E5;
+            /* Color celeste */
+            color: white;
+            /* Color de texto blanco por defecto */
+            margin: 0;
+            /* Eliminar márgenes por defecto del body */
         }
 
-        iframe {
-            
-            border-radius: 15px;
-            box-shadow: 7px 4px 8px rgba(0, 0, 0, 0.2);
-            width: 750px;
-            height: 750px;
+        .card {
+            background-color: #2D3748;
+            /* Color de fondo de la tarjeta */
+            border-radius: 8px;
+            /* Bordes redondeados */
+            padding: 10px;
+            /* Espaciado interno reducido */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Sombra */
+            transition: transform 0.2s;
+            /* Efecto de transición */
+            flex: 1 1 calc(25% - 20px);
+            /* Cuatro tarjetas por fila */
+            margin: 30px;
+            /* Espaciado entre las tarjetas */
+            max-width: 500px;
+            /* Tamaño máximo de las tarjetas */
+        }
+
+        /* Media query para pantallas más pequeñas (como móviles) */
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 calc(50% - 20px);
+                /* Dos tarjetas por fila */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                flex: 1 1 100%;
+                /* Una tarjeta por fila en pantallas muy pequeñas */
+            }
+        }
+
+
+        .card img {
+            max-width: 100%;
+            /* Imagen responsive */
+            border-radius: 8px;
+            /* Bordes redondeados de la imagen */
+        }
+
+        .card-container {
+            display: flex;
+            /* Utiliza flexbox para la disposición */
+            flex-wrap: wrap;
+            /* Permite que las tarjetas se muevan a la siguiente línea */
+            justify-content: center;
+            /* Centra las tarjetas en el contenedor */
+        }
+
+        h1 {
+            color: black;
+            /* Cambiar el color del encabezado a negro */
         }
     </style>
 </head>
+
 <body>
-    <!-- Navegación -->
     <%- include('partials/navigation') %>
 
-    <!-- Contenedor centrado con el iframe -->
-    <div class="container">
-        <iframe
-        allow="microphone;"
-        width="350"
-        height="430"
-        src="https://console.dialogflow.com/api-client/demo/embedded/0c03838a-6997-407a-a485-a2cfcaf007c2">
-</iframe>
-    </div>
+        <main class="flex min-h-screen flex-col items-center">
+            <h1 class="text-4xl font-bold text-center my-6">
+                CUENTAS DE STREAMING
+            </h1>
 
-    <!-- Pie de página -->
-    <%- include('partials/footer') %>
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tarjeta 1 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <img src="https://media.ambito.com/p/d311cb538756b958c7fd864085f4b2e0/adjuntos/239/imagenes/037/804/0037804626/1200x675/smart/amazon-prime-videojpg.jpg"
+                            alt="Prime Video" class="w-full h-48 object-cover" />
+                        <div class="p-6 bg-gray-900 text-white">
+                            <h2 class="text-2xl font-semibold text-center mb-4">Prime Video por Un Año</h2>
+                            <div class="mb-4">
+                                <p class="text-lg font-bold">PRECIO: <span class="text-green-400">12 SOLES</span></p>
+                                <p class="text-lg font-bold">ESTADO: <span class="text-green-400">Disponible</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-sm leading-relaxed">
+                                <p>✔ Contenidos de STAR disponibles 24/7.</p>
+                                <p>✔ Entrega en tiempo real.</p>
+                                <p>✔ Soporte en móvil, PC, TV y TV box.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center p-4 bg-gray-900">
+                            <a href="https://api.whatsapp.com/send?phone=51924003270&text=Hola%20,%20necesito%20informaci%C3%B3n" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <img src="https://lumiere-a.akamaihd.net/v1/images/channel_list_disney-plus_391341c3.png"
+                            alt="Curso de Python" class="w-full h-48 object-cover" />
+                        <div class="p-6 bg-gray-900 text-white">
+                            <h2 class="text-2xl font-semibold text-center mb-4">Disney Premium Familiar</h2>
+                            <div class="mb-4">
+                                <p class="text-lg font-bold">PRECIO: <span class="text-green-400">14 SOLES</span></p>
+                                <p class="text-lg font-bold">ESTADO: <span class="text-green-400">Disponible</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-sm leading-relaxed">
+                                <p>✔ Contenidos de STAR disponibles 24/7.</p>
+                                <p>✔ Entrega en tiempo real.</p>
+                                <p>✔ Soporte en móvil, PC, TV y TV box.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center p-4 bg-gray-900">
+                            <a href="https://api.whatsapp.com/send?phone=51924003270&text=Hola%20,%20necesito%20informaci%C3%B3n" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <img src="https://www.mundoconectado.com.br/wp-content/uploads/2024/07/YouTube-Premium.jpg"
+                            alt="Curso de Java" class="w-full h-48 object-cover" />
+                        <div class="p-6 bg-gray-900 text-white">
+                            <h2 class="text-2xl font-semibold text-center mb-4">Youtube Premium por 2 Meses</h2>
+                            <div class="mb-4">
+                                <p class="text-lg font-bold">PRECIO: <span class="text-green-400">12 SOLES</span></p>
+                                <p class="text-lg font-bold">ESTADO: <span class="text-green-400">Disponible</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-sm leading-relaxed">
+                                <p>✔ Contenidos de STAR disponibles 24/7.</p>
+                                <p>✔ Entrega en tiempo real.</p>
+                                <p>✔ Soporte en móvil, PC, TV y TV box.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center p-4 bg-gray-900">
+                            <a href="https://api.whatsapp.com/send?phone=51924003270&text=Hola%20,%20necesito%20informaci%C3%B3n" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+                        <img src="https://lanacionradio.fm/wp-content/uploads/2024/04/netflix-logo.jpg" alt="Netflix"
+                            class="w-full h-48 object-cover" />
+                        <div class="p-6 bg-gray-900 text-white">
+                            <h2 class="text-2xl font-semibold text-center mb-4">Netflix por 1 mes</h2>
+                            <div class="mb-4">
+                                <p class="text-lg font-bold">PRECIO: <span class="text-green-400">15 SOLES</span></p>
+                                <p class="text-lg font-bold">ESTADO: <span class="text-green-400">Disponible</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-sm leading-relaxed">
+                                <p>✔ Contenidos de STAR disponibles 24/7.</p>
+                                <p>✔ Entrega en tiempo real.</p>
+                                <p>✔ Soporte en móvil, PC, TV y TV box.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center p-4 bg-gray-900">
+                            <a href="https://api.whatsapp.com/send?phone=51924003270&text=Hola%20,%20necesito%20informaci%C3%B3n" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 5 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden col-span-2 lg:col-span-1 mx-auto">
+                        <img src="https://culturageek.com.ar/wp-content/uploads/2024/08/Magis-TV-www.culturageek.com_.ar_.webp"
+                            alt="Curso de React" class="w-full h-48 object-cover" />
+                        <div class="p-6 bg-gray-900 text-white">
+                            <h2 class="text-2xl font-semibold text-center mb-4">MagisTV</h2>
+                            <div class="mb-4">
+                                <p class="text-lg font-bold">PRECIO: <span class="text-green-400">15 SOLES</span></p>
+                                <p class="text-lg font-bold">ESTADO: <span class="text-green-400">Disponible</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-sm leading-relaxed">
+                                <p>✔ Contenidos de STAR disponibles 24/7.</p>
+                                <p>✔ Entrega en tiempo real.</p>
+                                <p>✔ Soporte en móvil, PC, TV y TV box.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center p-4 bg-gray-900">
+                            <a href="https://api.whatsapp.com/send?phone=51924003270&text=Hola%20,%20necesito%20informaci%C3%B3n" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 6 -->
+                    <div class="card bg-gray-800 rounded-lg shadow-xl overflow-hidden col-span-2 lg:col-span-1 mx-auto">
+                        <img src="https://static.independent.co.uk/2022/05/19/10/spotify%20cost.jpg"
+                            alt="Curso de React" class="w-full h-48 object-cover" />
+                        <div class="p-6 bg-gray-900 text-white">
+                            <h2 class="text-2xl font-semibold text-center mb-4">Spotify Premium</h2>
+                            <div class="mb-4">
+                                <p class="text-lg font-bold">PRECIO: <span class="text-green-400">12 SOLES</span></p>
+                                <p class="text-lg font-bold">ESTADO: <span class="text-green-400">Disponible</span></p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg text-sm leading-relaxed">
+                                <p>✔ Contenidos de STAR disponibles 24/7.</p>
+                                <p>✔ Entrega en tiempo real.</p>
+                                <p>✔ Soporte en móvil, PC, TV y TV box.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-center p-4 bg-gray-900">
+                            <a href="https://api.whatsapp.com/send?phone=51924003270&text=Hola%20,%20necesito%20informaci%C3%B3n" target="_blank"
+                                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg">
+                                Más información
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </main><br><br>
+
+        <%- include('partials/footer') %>
 </body>
-</htm
+
+</html>
